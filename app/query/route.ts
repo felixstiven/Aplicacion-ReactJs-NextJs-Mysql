@@ -1,12 +1,13 @@
 // import { db } from "@vercel/postgres";
 
 import mysql from 'mysql';
+import { env } from 'process';
 
 const client = mysql.createConnection({
   host: 'localhost', 
-  user: 'stiven',
-  password:'3883', 
-  database: 'invoices'
+  user: env.MYSQL_USER,
+  password: env.MYSQL_PASSWORD, 
+  database: 'test'
 });
 
 client.connect((err) => {
